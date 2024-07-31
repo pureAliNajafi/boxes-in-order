@@ -1,4 +1,5 @@
-import { numbers as unShuffledNumbers, colors as unShuffledColors } from "../config/initialData";
+const unShuffledNumbers = [1, 2, 3, 4, 5];
+const unShuffledColors = ["#60e1e0", "#ffc145", "#ed6a5e", "#cb9cf2", "#377771"];
 
 const getShuffledItems = () => {
   console.log("getShuffledItems func called");
