@@ -43,6 +43,7 @@ const Progress = ({ count, solved, items }) => {
                 className="absolute top-0 left-0 w-full h-[calc(50%+1px)] border-2 border-b-0 rounded-md rounded-b-none"
               />
               <motion.li
+                style={{ borderColor: items[0].color }}
                 {...buttonBordersAnimateProps}
                 className="absolute bottom-0 left-0 w-full h-[calc(50%+1px)] border-2 border-t-0 rounded-md rounded-t-none"
               />
