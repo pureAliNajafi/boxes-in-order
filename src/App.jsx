@@ -3,8 +3,7 @@ import GameBoard from "./components/GameBoard";
 
 function App() {
   return (
-    <main className="min-h-[100svh] flex flex-col items-center justify-around">
-      {false && <div />}
+    <main className="w-full max-w-[1024px] mx-auto min-h-[100svh] flex flex-col items-center justify-around">
       <GameBoard />
     </main>
   );

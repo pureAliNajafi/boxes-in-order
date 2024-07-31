@@ -20,22 +20,31 @@ const counterAnimateProps = {
   },
   transition: { duration: 0.5 },
 };
-const characterAnimateProps = {
+
+const buttonCharactersAnimateProps = {
   initial: {
     y: 10,
     opacity: 0,
-    scale: 0.66,
+    // scale: 0.66,
   },
   animate: {
     y: 0,
-    scale: 1,
     opacity: 1,
+    // scale: 1,
   },
-  exit: {
-    y: -10,
-    scale: 0.66,
-    opacity: 0,
-    transition: { /*  ease: "easeOut", */ duration: 0.5 },
+};
+const buttonBordersAnimateProps = {
+  initial: { y: 10 },
+  animate: { y: 0 },
+  transition: {
+    duration: 0.3,
+    ease: [0, 0.71, 0.2, 1.01],
+    y: {
+      type: "spring",
+      damping: 5,
+      stiffness: 100,
+      restDelta: 0.001,
+    },
   },
 };
 const fadeAnimateProps = {
@@ -54,4 +63,9 @@ const fadeAnimateProps = {
   },
   transition: { bounceDamping: 20, duration: 0.3 },
 };
-export { counterAnimateProps, characterAnimateProps, fadeAnimateProps };
+export {
+  counterAnimateProps,
+  buttonCharactersAnimateProps,
+  buttonBordersAnimateProps,
+  fadeAnimateProps,
+};

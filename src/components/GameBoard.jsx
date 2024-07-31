@@ -29,7 +29,7 @@ const GameBoard = () => {
     setSolved(correctGuesses === 5);
   }, [correctGuesses]);
   return (
-    <section className="w-full flex flex-col justify-center items-center gap-4">
+    <section className="mt-[5svh] w-full flex flex-col justify-center items-center gap-4">
       <Reorder.Group
         values={items}
         onReorder={setItems}
@@ -43,7 +43,7 @@ const GameBoard = () => {
         ))}
       </Reorder.Group>
 
-      <Counter count={correctGuesses} solved={solved} />
+      <Counter count={correctGuesses} items={items} solved={solved} />
     </section>
   );
 };
