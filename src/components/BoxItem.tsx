@@ -26,11 +26,9 @@ const BoxItem = ({ box, delayTime, setTouchUpFlag, solved }: BoxItemProps) => {
               opacity: 0,
               transition: { duration: 0.4, delay: delayTime },
             }}
-            // transition={{ duration: (box.value * 2) / 10 }}
             transition={{
               duration: 0.4,
               delay: delayTime,
-
               type: "spring",
               damping: 5,
               stiffness: 100,

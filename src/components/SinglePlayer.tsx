@@ -4,6 +4,8 @@ import getShuffledItems from "../utilities/Shuffle";
 import Progress from "./Progress";
 import { Boxes, Count, Flag, Solved } from "../types";
 import ReactConfetti from "react-confetti";
+import Confetti from "react-confetti/dist/types/Confetti";
+import Confettie from "./Confettie";
 
 const SinglePlayer = () => {
   // Framer Motion re-renders new boxes on drag (rather than positioning them with CSS). Therefore, using useMemo to cache them is pointless.
@@ -39,7 +41,7 @@ const SinglePlayer = () => {
 
   return (
     <section className="mt-[5svh] w-full flex flex-col justify-center items-center gap-4">
-      <ReactConfetti style={{ opacity: solved ? "1" : "0", transition: "0.4s 0.4s" }} />
+      <Confettie solved={solved} />
       <BoxGroup boxes={boxes} setBoxes={setBoxes} setTouchUpFlag={setTouchUpFlag} solved={solved} />
       <Progress
         count={correctGuesses}
