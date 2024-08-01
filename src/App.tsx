@@ -1,10 +1,9 @@
-import "./App.css";
-import GameBoard from "./components/GameBoard";
+import SinglePlayer from "./components/SinglePlayer";
 
 function App() {
   return (
     <main className="w-full max-w-[1024px] mx-auto min-h-[100svh] flex flex-col items-center justify-around">
-      <GameBoard />
+      <SinglePlayer />
     </main>
   );
 }

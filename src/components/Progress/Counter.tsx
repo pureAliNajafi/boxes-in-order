@@ -1,7 +1,8 @@
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { fadeAnimateProps, counterAnimateProps } from "../../config/motion";
-const Counter = ({ count }) => {
+import { Count } from "../../types";
+const Counter = ({ count }: { count: Count }) => {
   return (
     <motion.ul
       {...fadeAnimateProps}

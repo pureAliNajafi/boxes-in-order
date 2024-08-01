@@ -5,9 +5,10 @@ import {
   buttonBordersAnimateProps,
   fadeAnimateProps,
 } from "../../config/motion";
-const NextButton = ({ items }) => {
-  const borderColor = items[0].color;
-  const charactersColor = items.slice(0);
+import { Boxes } from "../../types";
+const NextButton = ({ boxes }: { boxes: Boxes }) => {
+  const borderColor = boxes[0].color;
+  const charactersColor = boxes.slice(0);
   return (
     <motion.button {...fadeAnimateProps} className="absolute top-0 left-0 h-full right-0">
       <div>

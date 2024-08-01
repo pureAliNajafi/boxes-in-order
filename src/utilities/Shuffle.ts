@@ -10,7 +10,8 @@ const getShuffledItems = () => {
   return items;
 };
 
-const shuffleArray = (array, strictShuffle = false) => {
+// function shuffleArray<T>(array: T[], strictShuffle = false): T[] {
+const shuffleArray = <T>(array: T[], strictShuffle = false): T[] => {
   const shuffled = array
     .map((value) => ({ value, sort: Math.random() }))
     .sort((a, b) => a.sort - b.sort)
@@ -19,7 +20,7 @@ const shuffleArray = (array, strictShuffle = false) => {
   return shuffled;
 };
 
-const hasUnPositionedElement = (originalArray, shuffledArray) => {
+const hasUnPositionedElement = <T>(originalArray: T[], shuffledArray: T[]) => {
   for (let i = 0; i < originalArray.length; i++)
     if (originalArray[i] === shuffledArray[i]) return true;
   return false;
