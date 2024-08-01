@@ -3,14 +3,22 @@ import BoxGroup from "./BoxGroup";
 import getShuffledItems from "../utilities/Shuffle";
 import Progress from "./Progress";
 import { Boxes, Count, Flag, Solved } from "../types";
+import ReactConfetti from "react-confetti";
 
 const SinglePlayer = () => {
   // Framer Motion re-renders new boxes on drag (rather than positioning them with CSS). Therefore, using useMemo to cache them is pointless.
 
-  const [boxes, setBoxes] = useState<Boxes>(() => getShuffledItems());
+  const [boxes, setBoxes] = useState<Boxes>(getShuffledItems());
   const [correctGuesses, setCorrectGuesses] = useState<Count>(0);
   const [touchUpFlag, setTouchUpFlag] = useState<Flag>(false);
   const [solved, setSolved] = useState<Solved>(false);
+
+  const handleNextLevel = () => {
+    setBoxes(getShuffledItems());
+    setCorrectGuesses(0);
+    setSolved(false);
+  };
+
   useEffect(() => {
     const getCorrectGuessesCount = () => {
       let count = 0;
@@ -28,10 +36,17 @@ const SinglePlayer = () => {
   useEffect(() => {
     setSolved(correctGuesses === 5);
   }, [correctGuesses]);
+
   return (
     <section className="mt-[5svh] w-full flex flex-col justify-center items-center gap-4">
-      <BoxGroup boxes={boxes} setBoxes={setBoxes} setTouchUpFlag={setTouchUpFlag} />
-      <Progress count={correctGuesses} boxes={boxes} solved={solved} />
+      <ReactConfetti style={{ opacity: solved ? "1" : "0", transition: "0.4s 0.4s" }} />
+      <BoxGroup boxes={boxes} setBoxes={setBoxes} setTouchUpFlag={setTouchUpFlag} solved={solved} />
+      <Progress
+        count={correctGuesses}
+        boxes={boxes}
+        solved={solved}
+        handleNextLevel={handleNextLevel}
+      />
     </section>
   );
 };

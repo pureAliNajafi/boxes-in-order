@@ -5,12 +5,19 @@ import {
   buttonBordersAnimateProps,
   fadeAnimateProps,
 } from "../../config/motion";
-import { Boxes } from "../../types";
-const NextButton = ({ boxes }: { boxes: Boxes }) => {
+import { Boxes, Void } from "../../types";
+const NextButton = ({ boxes, handleNextLevel }: { boxes: Boxes; handleNextLevel: Void }) => {
   const borderColor = boxes[0].color;
   const charactersColor = boxes.slice(0);
   return (
-    <motion.button {...fadeAnimateProps} className="absolute top-0 left-0 h-full right-0">
+    <motion.button
+      // whileTap={{ scale: 2 }}
+      onClick={() => {
+        handleNextLevel();
+      }}
+      {...fadeAnimateProps}
+      className="absolute top-0 left-0 h-full right-0"
+    >
       <div>
         {/* characters animation */}
         {"Next".split("").map((character, i) => (
