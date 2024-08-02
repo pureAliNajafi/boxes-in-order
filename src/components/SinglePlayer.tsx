@@ -16,9 +16,11 @@ const SinglePlayer = () => {
   const [solved, setSolved] = useState<Solved>(false);
 
   const handleNextLevel = () => {
-    setBoxes(getShuffledItems());
-    setCorrectGuesses(0);
-    setSolved(false);
+    setTimeout(() => {
+      setBoxes(getShuffledItems());
+      setCorrectGuesses(0);
+      setSolved(false);
+    }, 600);
   };
 
   useEffect(() => {
