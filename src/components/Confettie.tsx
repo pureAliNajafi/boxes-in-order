@@ -1,31 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import ReactConfetti from "react-confetti";
 import { Solved } from "../types";
+import { useWindowSize } from "@react-hook/window-size";
 
 const Confetti = ({ solved }: { solved: Solved }) => {
-  const [sizes, setSizes] = useState({ width: window.innerWidth, height: window.innerHeight });
-
-  const handleResize = () => {
-    setSizes({ width: window.innerWidth, height: window.innerHeight });
-  };
-
+  const [width, height] = useWindowSize();
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
-
-    // Cleanup the event listener on component unmount
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
+    console.log("*", width, height);
+  });
   return (
-    <ReactConfetti
-      width={sizes.width}
-      height={sizes.height} // Specify height for complete responsiveness
-      style={{ opacity: solved ? 1 : 0, transition: "opacity 0.4s 0.4s" }}
-      numberOfPieces={solved ? 200 : 0} // If you want to show confetti only when solved
-      recycle={solved}
-    />
+    <div className="fixed top-0 left-0 right-0 bottom-0 overflow-hidden /bg-indigo-300">
+      <ReactConfetti
+        height={height < 1080 ? 1080 : height}
+        width={width < 1920 ? 1920 : width}
+        // style={{ opacity: solved ? 1 : 0, transition: "opacity 0.4s 0.4s" }}
+        numberOfPieces={solved ? 275 : 0} // If you want to show confetti only when solved
+      />
+    </div>
   );
 };
 

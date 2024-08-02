@@ -40,16 +40,23 @@ const SinglePlayer = () => {
   }, [correctGuesses]);
 
   return (
-    <section className="mt-[5svh] w-full flex flex-col justify-center items-center gap-4">
-      <Confettie solved={solved} />
-      <BoxGroup boxes={boxes} setBoxes={setBoxes} setTouchUpFlag={setTouchUpFlag} solved={solved} />
-      <Progress
-        count={correctGuesses}
-        boxes={boxes}
-        solved={solved}
-        handleNextLevel={handleNextLevel}
-      />
-    </section>
+    <>
+      <section className="mt-[5svh] w-full flex flex-col justify-center items-center gap-4">
+        <Confettie solved={solved} />
+        <BoxGroup
+          boxes={boxes}
+          setBoxes={setBoxes}
+          setTouchUpFlag={setTouchUpFlag}
+          solved={solved}
+        />
+        <Progress
+          count={correctGuesses}
+          boxes={boxes}
+          solved={solved}
+          handleNextLevel={handleNextLevel}
+        />
+      </section>
+    </>
   );
 };
 

@@ -28,11 +28,16 @@ const BoxItem = ({ box, delayTime, setTouchUpFlag, solved }: BoxItemProps) => {
             }}
             transition={{
               duration: 0.4,
-              delay: delayTime,
-              type: "spring",
-              damping: 5,
-              stiffness: 100,
-              restDelta: 0.001,
+              y: {
+                delay: delayTime,
+                type: "spring",
+                damping: 5,
+                stiffness: 100,
+                restDelta: 0.001,
+              },
+              opacity: {
+                delay: delayTime,
+              },
             }}
             className="w-full h-full shadow-[inset_0_-2px_4px_rgba(0,0,0,0.6)] cursor-pointer rounded-md "
             style={{ background: box.color }}
