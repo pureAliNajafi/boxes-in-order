@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 import NextButton from "./NextButton";
-import Counter from "./Counter";
+import Counter from "../Counter";
 import { ProgressProps } from "../../types";
 const Progress = ({ count, solved, boxes, handleNextLevel }: ProgressProps) => {
   return (

@@ -11,7 +11,7 @@ const Confetti = ({ solved }: { solved: Solved }) => {
   return (
     <div className="fixed top-0 left-0 right-0 bottom-0 overflow-hidden /bg-indigo-300">
       <ReactConfetti
-        height={height < 1080 ? 1080 : height}
+        height={height}
         width={width < 1920 ? 1920 : width}
         // style={{ opacity: solved ? 1 : 0, transition: "opacity 0.4s 0.4s" }}
         numberOfPieces={solved ? 275 : 0} // If you want to show confetti only when solved

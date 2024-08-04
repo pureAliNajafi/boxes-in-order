@@ -5,7 +5,8 @@ body {
   margin: 0;
   max-width: 100svw;
   background-color: #1c1c1c;
-  background: (to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.84) 100%);
+  /* background: (to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.84) 100%); */
+  background: linear-gradient(to bottom, #272729 25%, #121316 75%);
   color: white;
   padding: 0px 8px;
   overflow: hidden;
