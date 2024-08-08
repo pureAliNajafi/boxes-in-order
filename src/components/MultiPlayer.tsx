@@ -7,7 +7,6 @@ import { getState, isHost, myPlayer, setState } from "playroomkit";
 import getShuffledItems from "../utilities/Shuffle";
 import EndedRoundMessage from "./MultiPlayer/EndedRoundMessage";
 import MultiPlayerLeaderBoard from "./MultiPlayerLeaderBoard";
-import Confetti from "./Confettie";
 
 const MultiPlayer = ({ updateCount }: { updateCount: any; updateScore: any; round: any }) => {
   const [boxes, setBoxes] = useState<Boxes>(getState(STATES.BOXES));
@@ -80,7 +79,7 @@ const MultiPlayer = ({ updateCount }: { updateCount: any; updateScore: any; roun
         />
 
         <EndedRoundMessage showCondition={round === "end"} />
-        <Confetti celebrate={round === "end"} />
+
         {/* 
         <button onClick={() => changeRoundStatus(round !== "end" ? "end" : "start")}>
           round:{round}

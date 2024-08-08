@@ -10,8 +10,7 @@ import {
 } from "playroomkit";
 import MultiPlayer from "../components/MultiPlayer";
 import getShuffledItems from "../utilities/Shuffle";
-import MultiPlayerLeaderBoard from "../components/MultiPlayerLeaderBoard";
-import TestKit from "../components/TestKit";
+
 export const STATES = {
   BOXES: "boxes", // room
   COUNT: "count",
@@ -22,7 +21,6 @@ export const STATES = {
 
 const Multi = () => {
   const players = usePlayersList(true);
-  const [callNewBoxesOrderFlag, setCallNewBoxesOrderFlag] = useState(false);
 
   const [loading, setLoading] = useState(true);
   const start = async () => {
@@ -31,11 +29,12 @@ const Multi = () => {
   };
 
   const createNewBoxes = () => {
-    const boxes = getShuffledItems();
     if (isHost()) {
+      const boxes = getShuffledItems();
       setState(STATES.BOXES, boxes);
+      // return;
     }
-    // setState(STATES.BOXES, getShuffledItems());
+    // setState(STATES.BOXES, getState(STATES.boxes));
   };
 
   const updateCount = (e) => {

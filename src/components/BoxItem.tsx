@@ -42,7 +42,7 @@ const BoxItem = ({ box, delayTime, setTouchUpFlag, solved }: BoxItemProps) => {
             className="w-full h-full shadow-[inset_0_-2px_4px_rgba(0,0,0,0.6)] cursor-pointer rounded-md "
             style={{ background: box.color }}
           >
-            {box.value}
+            {/* {box.value} */}
           </motion.div>
         )}
       </AnimatePresence>
