@@ -1,5 +1,7 @@
 import { AnimatePresence, Reorder, motion } from "framer-motion";
 import { BoxItemProps } from "../types";
+import { boxItemAnimateProps } from "../config/motion";
+import Dev from "./Dev";
 
 const BoxItem = ({ box, delayTime, setTouchUpFlag, solved }: BoxItemProps) => {
   return (
@@ -19,7 +21,41 @@ const BoxItem = ({ box, delayTime, setTouchUpFlag, solved }: BoxItemProps) => {
       <AnimatePresence>
         {!solved && (
           <motion.div
-            initial={{ y: 100, opacity: 0 }}
+            {...{
+              ...boxItemAnimateProps,
+              exit: {
+                ...boxItemAnimateProps.exit,
+                transition: { ...boxItemAnimateProps.exit.transition, delay: delayTime },
+              },
+              transition: {
+                ...boxItemAnimateProps.transition,
+                y: {
+                  ...boxItemAnimateProps.transition.y,
+                  delay: delayTime,
+                },
+                opacity: {
+                  ...boxItemAnimateProps.transition.opacity,
+                  delay: delayTime,
+                },
+              },
+            }}
+            className="w-full h-full shadow-main cursor-pointer rounded-md "
+            style={{ background: box.color }}
+          >
+            <Dev>
+              <div className="w-full h-full flex items-center justify-center">
+                <span className="text-lg">{box.value}</span>
+              </div>
+            </Dev>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </Reorder.Item>
+  );
+};
+
+export default BoxItem;
+/*          initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{
               y: -100,
@@ -38,16 +74,4 @@ const BoxItem = ({ box, delayTime, setTouchUpFlag, solved }: BoxItemProps) => {
               opacity: {
                 delay: delayTime,
               },
-            }}
-            className="w-full h-full shadow-[inset_0_-2px_4px_rgba(0,0,0,0.6)] cursor-pointer rounded-md "
-            style={{ background: box.color }}
-          >
-            {/* {box.value} */}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </Reorder.Item>
-  );
-};
-
-export default BoxItem;
+            }} */

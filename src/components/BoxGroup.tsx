@@ -13,7 +13,8 @@ const BoxGroup = ({ boxes, setBoxes, setTouchUpFlag, solved }: BoxGroupProps) =>
         <BoxItem
           key={box.value}
           box={box}
-          delayTime={(index + 1) / 10}
+          // delayTime={(index + 1) / 10} //from left
+          delayTime={(5 - index + 1) / 10} //from-right
           setTouchUpFlag={setTouchUpFlag}
           solved={solved}
         />

@@ -1,3 +1,26 @@
+const boxItemAnimateProps = {
+  initial: { y: 100, opacity: 0 },
+  animate: { y: 0, opacity: 1 },
+  exit: {
+    y: -100,
+    opacity: 0,
+    transition: { duration: 0.4, delay: 0 }, // Set delay to 0 here
+  },
+  transition: {
+    duration: 0.4,
+    y: {
+      delay: 0, // Set delay to 0 here
+      type: "spring",
+      damping: 5,
+      stiffness: 100,
+      restDelta: 0.001,
+    },
+    opacity: {
+      delay: 0, // Set delay to 0 here
+    },
+  },
+};
+
 const counterAnimateProps = {
   initial: {
     y: 20,
@@ -21,16 +44,20 @@ const counterAnimateProps = {
   transition: { duration: 0.5 },
 };
 
-const buttonCharactersAnimateProps = {
+const wordCharactersAnimateProps = {
   initial: {
     y: 10,
     opacity: 0,
     // scale: 0.66,
   },
   animate: {
-    y: 0,
+    y: 0.001,
     opacity: 1,
     // scale: 1,
+  },
+  exit: {
+    y: 10,
+    opacity: 0,
   },
 };
 const buttonBordersAnimateProps = {
@@ -64,8 +91,9 @@ const fadeAnimateProps = {
   transition: { bounceDamping: 20, duration: 0.3 },
 };
 export {
+  boxItemAnimateProps,
   counterAnimateProps,
-  buttonCharactersAnimateProps,
+  wordCharactersAnimateProps,
   buttonBordersAnimateProps,
   fadeAnimateProps,
 };

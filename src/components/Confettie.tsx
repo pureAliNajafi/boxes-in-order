@@ -9,7 +9,8 @@ const Confetti = ({ celebrate }: { celebrate: boolean }) => {
         height={height}
         width={width < 1920 ? 1920 : width}
         // style={{ opacity: solved ? 1 : 0, transition: "opacity 0.4s 0.4s" }}
-        numberOfPieces={celebrate ? 275 : 0} // If you want to show confetti only when solved
+        // numberOfPieces={celebrate ? 275 : 0} // If you want to show confetti only when solved
+        numberOfPieces={0}
       />
     </div>
   );

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import BoxGroup from "./BoxGroup";
 
 import { Boxes, Count, Flag, Solved } from "../types";
-import { STATES } from "../routes/multi";
+import { STATES } from "../pages/multi";
 import { getState, isHost, myPlayer, setState } from "playroomkit";
 import getShuffledItems from "../utilities/Shuffle";
 import EndedRoundMessage from "./MultiPlayer/EndedRoundMessage";

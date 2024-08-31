@@ -4,9 +4,9 @@ import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import Layout from "./components/Layout/Layout";
-import Root from "./routes/root";
-import Multi from "./routes/multi";
+import Layout from "./components/Layout";
+import Root from "./pages/root";
+import Multi from "./pages/multi";
 import ErrorPage from "./error-page";
 
 const router = createBrowserRouter([

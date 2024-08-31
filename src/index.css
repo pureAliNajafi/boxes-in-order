@@ -1,6 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "SpenbebGame"; /*Can be any text*/
+  src: local("SpenbebGame"), url("./assets/fonts/SpenbebGame-R9q46.otf") format("opentype");
+}
+.font-spenbeb-game {
+  font-family: "SpenbebGame";
+}
+
 body {
   margin: 0;
   max-width: 100svw;

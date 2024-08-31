@@ -41,7 +41,7 @@ const SinglePlayer = () => {
 
   return (
     <>
-      <section className="mt-[5svh] w-full flex flex-col justify-center items-center gap-4">
+      <section className="mt-[5svh] w-full flex flex-col justify-center items-center gap-5">
         <Confettie celebrate={solved} />
         <BoxGroup
           boxes={boxes}

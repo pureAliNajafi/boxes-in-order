@@ -12,11 +12,11 @@ const Counter = ({ count, maxNumber = 5, displayMaxLimit = true }: CounterProps)
   return (
     <motion.ul
       {...fadeAnimateProps}
-      className="relative -top-[1px] flex items-start justify-between gap-0.5 w-[32px]"
+      className="relative -top-[1px] flex items-start justify-between gap-4 w-[38px]"
     >
       <li className="h-full">
         {numbers.map((num) => (
-          <AnimatePresence>
+          <AnimatePresence key={num}>
             {count === num && (
               <motion.span
                 className="inline-block absolute left-0 -top-1 text-[24px]"

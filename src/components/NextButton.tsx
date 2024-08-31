@@ -1,14 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  buttonCharactersAnimateProps,
-  buttonBordersAnimateProps,
-  fadeAnimateProps,
-} from "../../config/motion";
-import { Boxes, Void } from "../../types";
+import { buttonBordersAnimateProps, fadeAnimateProps } from "../config/motion";
+import { Boxes, Void } from "../types";
+import WordCharactersAnimate from "./WordCharactersAnimate";
 const NextButton = ({ boxes, handleNextLevel }: { boxes: Boxes; handleNextLevel: Void }) => {
   const borderColor = boxes[0].color;
-  const charactersColor = boxes.slice(0);
+  const charactersColor = boxes.slice(1);
   return (
     <motion.button
       // whileTap={{ scale: 2 }}
@@ -19,22 +16,7 @@ const NextButton = ({ boxes, handleNextLevel }: { boxes: Boxes; handleNextLevel:
       className="absolute top-0 left-0 h-full right-0"
     >
       <div>
-        {/* characters animation */}
-        {"Next".split("").map((character, i) => (
-          <motion.span
-            className="inline-block absolute top-0.5"
-            style={{
-              color: charactersColor[i + 1].color,
-              left: 32 + i * (i === 1 ? 12.2 : i === 2 ? 10.7 : 10) + "px",
-            }}
-            {...buttonCharactersAnimateProps}
-            transition={{
-              duration: ((i + 2) / 10) * 1.5,
-            }}
-          >
-            {character}
-          </motion.span>
-        ))}
+        <WordCharactersAnimate word="Next" charactersColor={charactersColor} />
       </div>
       {/* borders animation */}
       <ul>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { getState } from "playroomkit";
-import { STATES } from "../../routes/multi";
+import { STATES } from "../../pages/multi";
 import CountDown from "../CountDown";
 const EndedRoundMessage = ({ showCondition }: { showCondition: boolean }) => {
   const winnerProfile = getState(STATES.WINNER)?.state.profile;
